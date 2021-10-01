@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict USD Rate Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <input type="text" name="backers_count" placeholder="backers_count" required="required" />
+        <input type="text" name="converted_pledged_amount" placeholder="converted_pledged_amount" required="required" />
+		<input type="text" name="country" placeholder="country" required="required" />
+        <input type="text" name="country_displayable_name" placeholder="country_displayable_name" required="required" />
+        <input type="text" name="created_at" placeholder="created_at" required="required" />
+        <input type="text" name="currency" placeholder="currency" required="required" />
+        <input type="text" name="currency_symbol" placeholder="currency_symbol" required="required" />
+        <input type="text" name="currency_trailing_code" placeholder="currency_trailing_code" required="required" />
+        <input type="text" name="current_currency" placeholder="current_currency" required="required" />
+        <input type="text" name="deadline" placeholder="deadline" required="required" />
+        <input type="text" name="disable_communication" placeholder="disable_communication" required="required" />
+        <input type="text" name="fx_rate" placeholder="fx_rate" required="required" />
+        <input type="text" name="goal" placeholder="goal" required="required" />
+        <input type="text" name="is_starrable" placeholder="is_starrable" required="required" />
+        <input type="text" name="launched_at" placeholder="launched_at" required="required" />
+        <input type="text" name="pledged" placeholder="pledged" required="required" />
+        <input type="text" name="spotlight" placeholder="spotlight" required="required" />
+        <input type="text" name="staff_pick" placeholder="staff_pick" required="required" />
+        <input type="text" name="state" placeholder="state" required="required" />
+        <input type="text" name="state_changed_at" placeholder="state_changed_at" required="required" />
+        <input type="text" name="static_usd_rate" placeholder="static_usd_rate" required="required" />
+        <input type="text" name="usd_type" placeholder="usd_type" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
